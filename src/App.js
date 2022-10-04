@@ -1,7 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import httpGet from './logic/JsonSchema';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [state, setState] = useState({ swaggerContent: "" });
+  useEffect(() => {
+    async function fetchData() {
+      const response = await httpGet("https://petstore.swagger.io/v2/swagger.json");
+      setState({ swaggerContent: response });
+      console.log(response);
+    }
+    fetchData();
+  }, []);
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +29,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <textarea cols={100} rows={100} value={state.swaggerContent} />
     </div>
   );
 }
