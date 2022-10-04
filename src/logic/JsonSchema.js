@@ -1,18 +1,8 @@
 const httpGet = async (url) => {
-    // let xmlhttp = new XMLHttpRequest();
-    // xmlhttp.onreadystatechange=function()
-    // {
-    //     if (xmlhttp.readyState===4 && xmlhttp.status===200)
-    //     {
-    //         return String(xmlhttp.responseText);
-    //     }
-    // }
-    // xmlhttp.open("GET", url, false );
-    // xmlhttp.send();
+    //Code to recreate: https://github.com/nathanspencer1/JsonSchemaGenerator/blob/master/JsonSchemaGenerator/AppLogic/JsonSchema.cs
+    //Got this from: https://www.codegrepper.com/code-examples/javascript/Javascript+read+content+from+url
     return await fetch(url).then(r => r.text());
-    // let response = "";
-    // await fetch(url).then(r => response = r.text());
-    // return response;
+    //Parsing JSON: https://stackoverflow.com/questions/9292823/serialize-javascript-object-to-json-and-back
 }
 
 export default httpGet;
