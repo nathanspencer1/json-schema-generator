@@ -1,56 +1,70 @@
 import "./App.css";
-import httpGet from "./logic/JsonSchema";
-import { useState } from "react";
+import schemaMethods from "./logic/JsonSchema";
+import { useEffect, useState } from "react";
 
 function App() {
-  const [swaggerJsonURL] = useState(
+  const [swaggerJsonURL, setSwaggerJsonURL] = useState(
     "https://petstore.swagger.io/v2/swagger.json"
   );
   const [swaggerContent, setSwaggerContent] = useState("");
   const [schema, setSchema] = useState("");
   const [classNames, setClassNames] = useState(["Class 1"]);
+  const [selectedClass, setSelectedClass] = useState("Class 1");
+
   const handleJsonImport = async () => {
     async function fetchData() {
-      const response = await httpGet(swaggerJsonURL);
+      const response = await schemaMethods.httpGet(swaggerJsonURL);
       const data = JSON.parse(response);
       const displayText = JSON.stringify(data, null, 2);
       setSwaggerContent(displayText);
     }
     await fetchData();
-    //**** need to find a way to propogate the change to swagger content.
-    // console.log(swaggerContent);
-    // handleParseClasses();
   };
-  const handleParseClasses = () => {
+
+  useEffect(() => {
+    if (!swaggerContent)
+      return;
+    try {
+      
+      const data = JSON.parse(swaggerContent);
+      const classes = data?.components?.schemas ?? data.definitions;
+      setClassNames(Object.keys(classes));
+    } catch (error) {  }
+  }, [swaggerContent])
+
+  useEffect(() => {
+    if (!classNames || classNames.length === 0)
+      return;
+      if (!classNames.includes(selectedClass))
+        setSelectedClass(classNames[0]);
+  }, [classNames, selectedClass])
+  
+  const handleClassSelect = () => {
     const data = JSON.parse(swaggerContent);
     const classes = data?.components?.schemas ?? data.definitions;
-    setClassNames(Object.keys(classes));
-    //handleClassSelect();
-  };
-  const handleClassSelect = (event) => {
-    const data = JSON.parse(swaggerContent);
-    const classes = data?.components?.schemas ?? data.definitions;
-    const myClass = classes[event.target.value];
-    const displayText = JSON.stringify(myClass, null, 2);
-    console.log(myClass);
-    //Need to actually create schema here.
+    const myClass = classes[selectedClass];
+    const displayText = schemaMethods.createSchema(myClass);
     setSchema(displayText);
   };
   return (
     <div className="App">
       <div className="ImportBar">
-        <input type={"text"} value={swaggerJsonURL} onChange={() => {}} />
+        {/* https://reactjs.org/docs/forms.html */}
+        <input type={"text"} value={swaggerJsonURL} onChange={(event) => {setSwaggerJsonURL(event.target.value)}} />
         <button onClick={handleJsonImport}>Import Swagger.json</button>
       </div>
-      <select id="classes" onChange={handleClassSelect}>
+      <div className="ImportBar">
+      <select id="classes" value={selectedClass} onChange={(event) => {setSelectedClass(event.target.value)}}>
         {classNames.map((c, i) => (
           <option key={i} value={c}>
             {c}
           </option>
         ))}
-      </select>
-      <textarea value={swaggerContent} onChange={handleParseClasses} />
-      <textarea value={schema} onChange={() => {}} />
+        </select>
+        <button onClick={handleClassSelect}>Create Schema</button>
+      </div>
+      <textarea value={swaggerContent} onChange={(event) => {setSwaggerContent(event.target.value)}}/>
+      <textarea value={schema} onChange={(event) => {setSchema(event.target.value)}} />
     </div>
   );
 }

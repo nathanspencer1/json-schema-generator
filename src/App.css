@@ -4,11 +4,11 @@ body {
 }
 
 .App {
-    height: 95vh;
+    height: 99vh;
     text-align: center;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 100%;
+    grid-template-rows: auto 1fr;
 }
 
 .App * {
@@ -22,6 +22,7 @@ body {
 }
 
 .ImportBar * {
+    max-width: 42vw;
     margin: 0px;
     box-sizing: border-box;
 }
