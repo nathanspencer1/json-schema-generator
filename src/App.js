@@ -3,9 +3,7 @@ import schemaMethods from "./logic/JsonSchema";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [swaggerJsonURL, setSwaggerJsonURL] = useState(
-    "https://petstore.swagger.io/v2/swagger.json"
-  );
+  const [swaggerJsonURL, setSwaggerJsonURL] = useState("https://petstore.swagger.io/v2/swagger.json");
   const [swaggerContent, setSwaggerContent] = useState("");
   const [schema, setSchema] = useState("");
   const [classNames, setClassNames] = useState(["Class 1"]);
@@ -22,49 +20,69 @@ function App() {
   };
 
   useEffect(() => {
-    if (!swaggerContent)
-      return;
+    if (!swaggerContent) return;
     try {
-      
       const data = JSON.parse(swaggerContent);
       const classes = data?.components?.schemas ?? data.definitions;
       setClassNames(Object.keys(classes));
-    } catch (error) {  }
-  }, [swaggerContent])
+    } catch (error) {}
+  }, [swaggerContent]);
 
   useEffect(() => {
-    if (!classNames || classNames.length === 0)
-      return;
-      if (!classNames.includes(selectedClass))
-        setSelectedClass(classNames[0]);
-  }, [classNames, selectedClass])
-  
-  const handleClassSelect = () => {
-    const data = JSON.parse(swaggerContent);
-    const classes = data?.components?.schemas ?? data.definitions;
-    const myClass = classes[selectedClass];
-    const displayText = schemaMethods.createSchema(myClass);
-    setSchema(displayText);
+    if (!classNames || classNames.length === 0) return;
+    if (!classNames.includes(selectedClass)) setSelectedClass(classNames[0]);
+  }, [classNames, selectedClass]);
+
+  const handleClassSelect = async () => {
+    async function fetchData() {
+      const data = JSON.parse(swaggerContent);
+      const classes = data?.components?.schemas ?? data.definitions;
+      const myClass = classes[selectedClass];
+      const displayText = await schemaMethods.createSchema(myClass);
+      setSchema(displayText);
+    }
+    await fetchData();
   };
   return (
     <div className="App">
       <div className="ImportBar">
         {/* https://reactjs.org/docs/forms.html */}
-        <input type={"text"} value={swaggerJsonURL} onChange={(event) => {setSwaggerJsonURL(event.target.value)}} />
+        <input
+          type={"text"}
+          value={swaggerJsonURL}
+          onChange={(event) => {
+            setSwaggerJsonURL(event.target.value);
+          }}
+        />
         <button onClick={handleJsonImport}>Import Swagger.json</button>
       </div>
       <div className="ImportBar">
-      <select id="classes" value={selectedClass} onChange={(event) => {setSelectedClass(event.target.value)}}>
-        {classNames.map((c, i) => (
-          <option key={i} value={c}>
-            {c}
-          </option>
-        ))}
+        <select
+          id="classes"
+          value={selectedClass}
+          onChange={(event) => {
+            setSelectedClass(event.target.value);
+          }}>
+          {classNames.map((c, i) => (
+            <option key={i} value={c}>
+              {c}
+            </option>
+          ))}
         </select>
         <button onClick={handleClassSelect}>Create Schema</button>
       </div>
-      <textarea value={swaggerContent} onChange={(event) => {setSwaggerContent(event.target.value)}}/>
-      <textarea value={schema} onChange={(event) => {setSchema(event.target.value)}} />
+      <textarea
+        value={swaggerContent}
+        onChange={(event) => {
+          setSwaggerContent(event.target.value);
+        }}
+      />
+      <textarea
+        value={schema}
+        onChange={(event) => {
+          setSchema(event.target.value);
+        }}
+      />
     </div>
   );
 }

@@ -1,0 +1,38 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "MyClass",
+    "type": "object",
+    "properties": {
+        "ID": {
+            "type": "integer",
+            "format": "int32"
+        },
+        "Name": {
+            "type": "string",
+            "nullable": true
+        },
+        "SubClassArray": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/MySubClass"
+            },
+            "nullable": true
+        }
+    },
+    "definitions": {
+        "MySubClass": {
+            "title": "MySubClass",
+            "type": "object",
+            "properties": {
+                "ID": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "Name": {
+                    "type": "string",
+                    "nullable": true
+                }
+            }
+        }
+    }
+}
