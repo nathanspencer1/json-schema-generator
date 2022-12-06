@@ -1,0 +1,4949 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "MetersAPI",
+        "version": "Development"
+    },
+    "paths": {
+        "/api/Estimator/Setup/{propertyId}/{chargeCode}": {
+            "get": {
+                "tags": [
+                    "Estimator"
+                ],
+                "parameters": [
+                    {
+                        "name": "propertyId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "chargeCode",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "nullable": true
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MeterEstimatorSetup"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MeterEstimatorSetup"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MeterEstimatorSetup"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Estimator/AllowedEstimateCount/{state}/{city}": {
+            "get": {
+                "tags": [
+                    "Estimator"
+                ],
+                "parameters": [
+                    {
+                        "name": "state",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "nullable": true
+                        }
+                    },
+                    {
+                        "name": "city",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "nullable": true
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "integer",
+                                    "format": "int32"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "integer",
+                                    "format": "int32"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "integer",
+                                    "format": "int32"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Estimator/SecondaryTransponders/{propertyCode}": {
+            "get": {
+                "tags": [
+                    "Estimator"
+                ],
+                "parameters": [
+                    {
+                        "name": "propertyCode",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "nullable": true
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/SecondaryTransponderSetup"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/SecondaryTransponderSetup"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/SecondaryTransponderSetup"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Estimator/UnitDailyReads/{unitId}/{chargeId}/{startDate}/{endDate}": {
+            "get": {
+                "tags": [
+                    "Estimator"
+                ],
+                "parameters": [
+                    {
+                        "name": "unitId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "chargeId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "nullable": true
+                        }
+                    },
+                    {
+                        "name": "startDate",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time",
+                            "nullable": true
+                        }
+                    },
+                    {
+                        "name": "endDate",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time",
+                            "nullable": true
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/DailyRead"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/DailyRead"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/DailyRead"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Estimator/GetUnits": {
+            "put": {
+                "tags": [
+                    "Estimator"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EstimatorParameters"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EstimatorParameters"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EstimatorParameters"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/EstimatorUnitReturn"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/EstimatorUnitReturn"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/EstimatorUnitReturn"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Estimator/UnitAveragesGet": {
+            "put": {
+                "tags": [
+                    "Estimator"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UnitAverageParameters"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UnitAverageParameters"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UnitAverageParameters"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/MeterEstimatorUnit"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/MeterEstimatorUnit"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/MeterEstimatorUnit"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Estimator/PropertyAverageGet": {
+            "put": {
+                "tags": [
+                    "Estimator"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PropertyAverageParameters"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PropertyAverageParameters"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PropertyAverageParameters"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "number",
+                                    "format": "double"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "number",
+                                    "format": "double"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "number",
+                                    "format": "double"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Estimator/PropertyAverageByUnitStatsGet": {
+            "put": {
+                "tags": [
+                    "Estimator"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PropertyAverageParameters"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PropertyAverageParameters"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PropertyAverageParameters"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "number",
+                                    "format": "double"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "number",
+                                    "format": "double"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "number",
+                                    "format": "double"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Estimator/GetDailyReadAverages": {
+            "put": {
+                "tags": [
+                    "Estimator"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DailyReadAverageParam"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DailyReadAverageParam"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DailyReadAverageParam"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/DailyReadAverage"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/DailyReadAverage"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/DailyReadAverage"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Estimator/IMCResetGet": {
+            "post": {
+                "tags": [
+                    "Estimator"
+                ],
+                "summary": "Acquires IMC Reset data for any units that need IMC resets based on the chargeID, cycle start, and cycle end dates used.",
+                "requestBody": {
+                    "description": "Information needed to acquire IMC resets for a given charge, list of units, and cycle start/end dates",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/IMCResetParameters"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/IMCResetParameters"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/IMCResetParameters"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/IMCReset"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/IMCReset"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/IMCReset"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Estimator/PreviousIMCReset/{propertyId}/{postMonth}": {
+            "delete": {
+                "tags": [
+                    "Estimator"
+                ],
+                "parameters": [
+                    {
+                        "name": "propertyId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "postMonth",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Import/ImportReads/{propertyId}/{postMonth}": {
+            "put": {
+                "tags": [
+                    "Import"
+                ],
+                "parameters": [
+                    {
+                        "name": "propertyId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "postMonth",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Import/InitialReads/Calculate/{propertyId}/{postMonth}": {
+            "get": {
+                "tags": [
+                    "Import"
+                ],
+                "summary": "Acquires initial meter reads for skywalker",
+                "parameters": [
+                    {
+                        "name": "propertyId",
+                        "in": "path",
+                        "description": "The ID of the property acquiring initial meter reads for",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "description": "The ID of the property acquiring initial meter reads for",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "postMonth",
+                        "in": "path",
+                        "description": "The postmonth acquiring initial meter reads for",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "description": "The postmonth acquiring initial meter reads for",
+                            "format": "date-time"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ImportRead"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ImportRead"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ImportRead"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Import/Import/EndReads/Calculate/{propertyId}/{postMonth}": {
+            "get": {
+                "tags": [
+                    "Import"
+                ],
+                "parameters": [
+                    {
+                        "name": "propertyId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "postMonth",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ImportRead"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ImportRead"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ImportRead"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Import/Reads/Acquire/{propertyId}/{postMonth}": {
+            "get": {
+                "tags": [
+                    "Import"
+                ],
+                "summary": "Acquire a list of reads that contain both reads that need importing and reads that have been imported.",
+                "parameters": [
+                    {
+                        "name": "propertyId",
+                        "in": "path",
+                        "description": "The ID of the property reads are being acquired for",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "description": "The ID of the property reads are being acquired for",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "postMonth",
+                        "in": "path",
+                        "description": "The post month reads are being acquired for",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "description": "The post month reads are being acquired for",
+                            "format": "date-time"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/MeterReadBase"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/MeterReadBase"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/MeterReadBase"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Rates/RateStructure": {
+            "get": {
+                "tags": [
+                    "Rates"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/RateStructure"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/RateStructure"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/RateStructure"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Rates/Get/{propertyID}": {
+            "get": {
+                "tags": [
+                    "Rates"
+                ],
+                "parameters": [
+                    {
+                        "name": "propertyID",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ChargeTypeRate"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ChargeTypeRate"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ChargeTypeRate"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Rates/Get/{propertyID}/{chargeTypeID}": {
+            "get": {
+                "tags": [
+                    "Rates"
+                ],
+                "parameters": [
+                    {
+                        "name": "propertyID",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "chargeTypeID",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ChargeTypeRate"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ChargeTypeRate"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ChargeTypeRate"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Rates/RatesGet": {
+            "put": {
+                "tags": [
+                    "Rates"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RatesParameters"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RatesParameters"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RatesParameters"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Rate"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Rate"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Rate"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Rates/RateChangeGet": {
+            "put": {
+                "tags": [
+                    "Rates"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RatesParameters"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RatesParameters"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RatesParameters"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/RateChange"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/RateChange"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/RateChange"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Read/PropertyReadsGet/{propertyId}/{startDate}/{endDate}": {
+            "put": {
+                "tags": [
+                    "Read"
+                ],
+                "parameters": [
+                    {
+                        "name": "propertyId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "startDate",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time",
+                            "nullable": true
+                        }
+                    },
+                    {
+                        "name": "endDate",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time",
+                            "nullable": true
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "nullable": true
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "nullable": true
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "nullable": true
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ReadListReturn"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ReadListReturn"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ReadListReturn"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Read/UnitReadsGet/{unitId}/{startDate}/{endDate}": {
+            "put": {
+                "tags": [
+                    "Read"
+                ],
+                "parameters": [
+                    {
+                        "name": "unitId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "startDate",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time",
+                            "nullable": true
+                        }
+                    },
+                    {
+                        "name": "endDate",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time",
+                            "nullable": true
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "nullable": true
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "nullable": true
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "nullable": true
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ReadListReturn"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ReadListReturn"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ReadListReturn"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Read/Save/{unitId}/{chargeCode}/{readValue}/{readDate}": {
+            "put": {
+                "tags": [
+                    "Read"
+                ],
+                "parameters": [
+                    {
+                        "name": "unitId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "chargeCode",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "nullable": true
+                        }
+                    },
+                    {
+                        "name": "readValue",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "format": "double"
+                        }
+                    },
+                    {
+                        "name": "readDate",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "integer",
+                                    "format": "int64"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "integer",
+                                    "format": "int64"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "integer",
+                                    "format": "int64"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Read/EstimateSave/{unitId}/{chargeCode}/{readValue}/{readDate}/{isReadProratedToLongestSubCycle}": {
+            "put": {
+                "tags": [
+                    "Read"
+                ],
+                "parameters": [
+                    {
+                        "name": "unitId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "chargeCode",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "nullable": true
+                        }
+                    },
+                    {
+                        "name": "readValue",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "format": "double"
+                        }
+                    },
+                    {
+                        "name": "readDate",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    },
+                    {
+                        "name": "isReadProratedToLongestSubCycle",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "boolean",
+                            "nullable": true
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Read/GetUnitCycleReads": {
+            "put": {
+                "tags": [
+                    "Read"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UnitCycleReadParam"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UnitCycleReadParam"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UnitCycleReadParam"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CycleReads"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CycleReads"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CycleReads"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Read/CopyReadsFromChargeCode/{propertyId}/{chargeCodeFrom}/{chargeCodeTo}/{readDate}": {
+            "put": {
+                "tags": [
+                    "Read"
+                ],
+                "parameters": [
+                    {
+                        "name": "propertyId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "chargeCodeFrom",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "nullable": true
+                        }
+                    },
+                    {
+                        "name": "chargeCodeTo",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "nullable": true
+                        }
+                    },
+                    {
+                        "name": "readDate",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Read": {
+            "delete": {
+                "tags": [
+                    "Read"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/MeterRead"
+                                },
+                                "nullable": true
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/MeterRead"
+                                },
+                                "nullable": true
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/MeterRead"
+                                },
+                                "nullable": true
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Read/Estimate": {
+            "delete": {
+                "tags": [
+                    "Read"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EstimatedReadsToDelete"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EstimatedReadsToDelete"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EstimatedReadsToDelete"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Read/UnitReads": {
+            "delete": {
+                "tags": [
+                    "Read"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UnitMeterReadsToDelete"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UnitMeterReadsToDelete"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UnitMeterReadsToDelete"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Read/EstimatedRead/{unitId}/{chargeCode}/{readDate}": {
+            "delete": {
+                "tags": [
+                    "Read"
+                ],
+                "parameters": [
+                    {
+                        "name": "unitId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "chargeCode",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "nullable": true
+                        }
+                    },
+                    {
+                        "name": "readDate",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/SB7/Setup/{propertyId}": {
+            "get": {
+                "tags": [
+                    "SB7"
+                ],
+                "summary": "Get's the SB7 Setup",
+                "parameters": [
+                    {
+                        "name": "propertyId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "description": "",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "utilityID",
+                        "in": "query",
+                        "description": "",
+                        "schema": {
+                            "type": "integer",
+                            "description": "",
+                            "format": "int32",
+                            "nullable": true
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/SB7Setup"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/SB7Setup"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/SB7Setup"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/SB7/SplitPercentagesSetup/{propertyId}/{unitId}": {
+            "get": {
+                "tags": [
+                    "SB7"
+                ],
+                "summary": "Get Unit Split Percentage Setup",
+                "parameters": [
+                    {
+                        "name": "propertyId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "description": "",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "unitId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/CAUnitChargeEstimateSetup"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/CAUnitChargeEstimateSetup"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/CAUnitChargeEstimateSetup"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/SB7/Setup": {
+            "post": {
+                "tags": [
+                    "SB7"
+                ],
+                "summary": "Saves SB7 Setup",
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/SB7Setup"
+                                },
+                                "description": "",
+                                "nullable": true
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/SB7Setup"
+                                },
+                                "description": "",
+                                "nullable": true
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/SB7Setup"
+                                },
+                                "description": "",
+                                "nullable": true
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/SB7/SplitPercentagesSetup": {
+            "post": {
+                "tags": [
+                    "SB7"
+                ],
+                "summary": "Saves split setup",
+                "requestBody": {
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CAUnitChargeEstimateSetup"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CAUnitChargeEstimateSetup"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CAUnitChargeEstimateSetup"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/SB7/SplitPercentagesSetup/{parentChargeTableID}": {
+            "delete": {
+                "tags": [
+                    "SB7"
+                ],
+                "summary": "Deletes split setup",
+                "parameters": [
+                    {
+                        "name": "parentChargeTableID",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "description": "",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/SB7/Setup/{propertyId}/{serviceChargeId}": {
+            "delete": {
+                "tags": [
+                    "SB7"
+                ],
+                "summary": "Delete Sb7 Setup",
+                "parameters": [
+                    {
+                        "name": "propertyId",
+                        "in": "path",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "description": "",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "serviceChargeId",
+                        "in": "path",
+                        "description": "ServicechargeID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "description": "ServicechargeID",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Setup/{propertyId}": {
+            "get": {
+                "tags": [
+                    "Setup"
+                ],
+                "parameters": [
+                    {
+                        "name": "propertyId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/MeterSetup"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/MeterSetup"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/MeterSetup"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/TimeOfUse/Setup/{propertyId}": {
+            "get": {
+                "tags": [
+                    "TimeOfUse"
+                ],
+                "parameters": [
+                    {
+                        "name": "propertyId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TimeOfUseSetup"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TimeOfUseSetup"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TimeOfUseSetup"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/TimeOfUse/Setup/{propertyId}/{chargeId}": {
+            "get": {
+                "tags": [
+                    "TimeOfUse"
+                ],
+                "parameters": [
+                    {
+                        "name": "propertyId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "chargeId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TimeOfUseSetup"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TimeOfUseSetup"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TimeOfUseSetup"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "CustomNote": {
+                "type": "object",
+                "properties": {
+                    "noteTypeId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "noteType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "customNoteText": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "MeterEstimatorSetup": {
+                "type": "object",
+                "properties": {
+                    "setupId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "chargeCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "chargeId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "cycleStart": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "cycleEnd": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "prorateDailyReads": {
+                        "type": "boolean"
+                    },
+                    "estimateVacants": {
+                        "type": "boolean"
+                    },
+                    "estimateModelUnits": {
+                        "type": "boolean"
+                    },
+                    "estimateNonBillable": {
+                        "type": "boolean"
+                    },
+                    "avgBasedOnOccs": {
+                        "type": "boolean"
+                    },
+                    "avgBasedOnSqft": {
+                        "type": "boolean"
+                    },
+                    "avgBasedOnBeds": {
+                        "type": "boolean"
+                    },
+                    "avgBasedOnPriorYear": {
+                        "type": "boolean"
+                    },
+                    "capAtThreshold": {
+                        "type": "boolean"
+                    },
+                    "courtesyCap": {
+                        "type": "boolean"
+                    },
+                    "prorateToInitial": {
+                        "type": "boolean"
+                    },
+                    "estimateWithPositiveConsAfterCycle": {
+                        "type": "boolean"
+                    },
+                    "useCustomNotes": {
+                        "type": "boolean"
+                    },
+                    "excludeHighLowFromAvgCalc": {
+                        "type": "boolean"
+                    },
+                    "autoCalcIMCReset": {
+                        "type": "boolean"
+                    },
+                    "doNotEstimateHighCons": {
+                        "type": "boolean"
+                    },
+                    "doNotEstimateNewMoveIn": {
+                        "type": "boolean"
+                    },
+                    "isAllowedReEstimation": {
+                        "type": "boolean"
+                    },
+                    "minThresh": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "maxThresh": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "minPrebillThresh": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "maxPrebillThresh": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "minTrueUpThresh": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "courtesyCapThresh": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "courtesyCapOccLimit": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "roundingPrecision": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "minThresholdNullable": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "minThreshold": {
+                        "type": "number",
+                        "format": "double",
+                        "readOnly": true
+                    },
+                    "maxThresholdNullable": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "maxThreshold": {
+                        "type": "number",
+                        "format": "double",
+                        "readOnly": true
+                    },
+                    "customNotes": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CustomNote"
+                        },
+                        "nullable": true
+                    },
+                    "isSetToImportReads": {
+                        "type": "boolean"
+                    },
+                    "isSetToImportInitialReads": {
+                        "type": "boolean"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "SecondaryTransponderSetup": {
+                "type": "object",
+                "properties": {
+                    "mainChargeCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "mainUnitCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "secondaryChargeCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "secondaryUnitCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sameTransponder": {
+                        "type": "boolean"
+                    },
+                    "sumReads": {
+                        "type": "boolean"
+                    },
+                    "sumConsumption": {
+                        "type": "boolean"
+                    },
+                    "isMeterBoxInfoShown": {
+                        "type": "boolean"
+                    },
+                    "isReadCombinedBetweenUnits": {
+                        "type": "boolean"
+                    },
+                    "isSameMultiplierUsed": {
+                        "type": "boolean"
+                    },
+                    "isMeterThresholdProrated": {
+                        "type": "boolean"
+                    },
+                    "isCalcBasedOnCombinedConsumption": {
+                        "type": "boolean"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "DailyRead": {
+                "type": "object",
+                "properties": {
+                    "unitId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "unitCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "chargeId": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "chargeName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "readDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "readValue": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "usage": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "evenMonth": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "isEstimated": {
+                        "type": "boolean",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "EstimatorParameters": {
+                "type": "object",
+                "properties": {
+                    "propertyId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "postMonth": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "chargeCodes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AverageTypes": {
+                "enum": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                ],
+                "type": "integer",
+                "format": "int32"
+            },
+            "MeterEstimatorUnit": {
+                "type": "object",
+                "properties": {
+                    "unitId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "unitCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "thisMonthReadId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "lastMonthReadId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "chargeCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "thisMonthReadValue": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "lastMonthReadValue": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "lastMonthEstimatedReadValue": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "initialRead": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "isLastMonthReadEstimated": {
+                        "type": "boolean"
+                    },
+                    "averageConsumptionToUse": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "averageType": {
+                        "$ref": "#/components/schemas/AverageTypes"
+                    },
+                    "averageTypeName": {
+                        "type": "string",
+                        "nullable": true,
+                        "readOnly": true
+                    },
+                    "tenantID": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "tenantCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "moveInDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "occs": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "sqft": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "beds": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "countFactor": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "meterMultiplier": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "ccsUsageFactor": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "previousMonthWasTruedUp": {
+                        "type": "boolean"
+                    },
+                    "consumption": {
+                        "type": "number",
+                        "format": "double",
+                        "readOnly": true
+                    },
+                    "rawConsumption": {
+                        "type": "number",
+                        "format": "double",
+                        "readOnly": true
+                    },
+                    "cycleStartRead": {
+                        "type": "number",
+                        "format": "double",
+                        "readOnly": true
+                    },
+                    "lastMonthUsedRead": {
+                        "type": "number",
+                        "format": "double",
+                        "readOnly": true
+                    },
+                    "lastMonthUsedRawRead": {
+                        "type": "number",
+                        "format": "double",
+                        "readOnly": true
+                    },
+                    "hasValidMoveInDate": {
+                        "type": "boolean",
+                        "readOnly": true
+                    },
+                    "averageConsumptionToUseNoMultipliers": {
+                        "type": "number",
+                        "format": "double",
+                        "readOnly": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "EstimatorUnitReturn": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "unitsToEstimate": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/MeterEstimatorUnit"
+                        },
+                        "nullable": true
+                    },
+                    "negativeDeniedUnits": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/MeterEstimatorUnit"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "UnitAverageParameters": {
+                "type": "object",
+                "properties": {
+                    "unitIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "nullable": true
+                    },
+                    "chargeCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "startDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "endDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "postMonth": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "PropertyAverageParameters": {
+                "type": "object",
+                "properties": {
+                    "propertyId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "chargeCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "startDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "endDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "maxThreshold": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "minThreshold": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "calcByOccs": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "calcBySqft": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "calcByBeds": {
+                        "type": "boolean",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "DailyReadAverageParam": {
+                "type": "object",
+                "properties": {
+                    "unitIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "nullable": true
+                    },
+                    "chargeCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "startDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "endDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "Cycle": {
+                "type": "object",
+                "properties": {
+                    "start": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "end": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "DailyReadAverage": {
+                "type": "object",
+                "properties": {
+                    "unitID": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "cycle": {
+                        "$ref": "#/components/schemas/Cycle"
+                    },
+                    "startRead": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "endRead": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "totalDays": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "dailyAverageUsage": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "totalUsage": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "isStartReadUsingReadImportDate": {
+                        "type": "boolean"
+                    },
+                    "isEndReadUsingReadImportDate": {
+                        "type": "boolean"
+                    },
+                    "actualCycle": {
+                        "$ref": "#/components/schemas/Cycle"
+                    },
+                    "proratedUsage": {
+                        "type": "number",
+                        "format": "double"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "IMCResetParameters": {
+                "type": "object",
+                "properties": {
+                    "chargeID": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "cycleStart": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "cycleEnd": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "unitIDs": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "nullable": true
+                    },
+                    "roundingPrecisions": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "IMCReset": {
+                "type": "object",
+                "properties": {
+                    "unit": {
+                        "$ref": "#/components/schemas/MeterEstimatorUnit"
+                    },
+                    "startDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "startRead": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "endDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "endRead": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "newStartRead": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "dateToSave": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "readToSave": {
+                        "type": "number",
+                        "format": "double"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ChargeBase": {
+                "type": "object",
+                "properties": {
+                    "chargeID": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "chargeCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "chargeName": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ImportRead": {
+                "type": "object",
+                "properties": {
+                    "unitID": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "tenantID": {
+                        "type": "integer",
+                        "format": "int64",
+                        "nullable": true
+                    },
+                    "tenantMoveInDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "charge": {
+                        "$ref": "#/components/schemas/ChargeBase"
+                    },
+                    "billPeriodStart": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "billPeriodEnd": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "read": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "importReadDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "actualReadDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "MeterReadBase": {
+                "type": "object",
+                "properties": {
+                    "unitID": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "unitCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "tenantID": {
+                        "type": "integer",
+                        "format": "int64",
+                        "nullable": true
+                    },
+                    "tenantMoveInDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "charge": {
+                        "$ref": "#/components/schemas/ChargeBase"
+                    },
+                    "billPeriodStart": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "billPeriodEnd": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "startReadID": {
+                        "type": "integer",
+                        "format": "int64",
+                        "nullable": true
+                    },
+                    "endReadID": {
+                        "type": "integer",
+                        "format": "int64",
+                        "nullable": true
+                    },
+                    "startRead": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "endRead": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "startReadDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "endReadDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "rawStartRead": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "estimatedStartRead": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "rawEndRead": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "estimatedEndRead": {
+                        "type": "number",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "needToImportStartRead": {
+                        "type": "boolean"
+                    },
+                    "needToImportEndRead": {
+                        "type": "boolean"
+                    },
+                    "actualStartReadDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "actualEndReadDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "RateStructure": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "RateTier": {
+                "type": "object",
+                "properties": {
+                    "rate": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "lowerUsageLimit": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "upperUsageLimit": {
+                        "type": "number",
+                        "format": "double"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ChargeTypeRate": {
+                "type": "object",
+                "properties": {
+                    "chargeTypeID": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "rateStructure": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "tiers": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/RateTier"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "RatesParameters": {
+                "type": "object",
+                "properties": {
+                    "chargeCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "chargeId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "propCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "propertyId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "rateStructure": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "rateType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "getRatesFromLeaseCharges": {
+                        "type": "boolean"
+                    },
+                    "isCycleAfterEffectiveDate": {
+                        "type": "boolean"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "Rate": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "rateTypeValue": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "rateAmount": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "breakpoint": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "tier": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "RateChange": {
+                "type": "object",
+                "properties": {
+                    "startDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "chargeId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "rateStructure": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "rates": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Rate"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "MeterReadStatus": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "hmy INT",
+                        "format": "int32"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "sDescription VARCHAR(50) Nullable",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Billing.dbo.cu_MeterRead_Status_lu"
+            },
+            "MeterRead": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "HMY BIGINT",
+                        "format": "int64",
+                        "nullable": true
+                    },
+                    "unitID": {
+                        "type": "integer",
+                        "description": "HCODE BIGINT",
+                        "format": "int64"
+                    },
+                    "code": {
+                        "type": "string",
+                        "description": "SCODE VARCHAR(14)",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "SNAME VARCHAR(30)",
+                        "nullable": true
+                    },
+                    "date": {
+                        "type": "string",
+                        "description": "DTDATE DATETIME",
+                        "format": "date-time"
+                    },
+                    "chargeCode": {
+                        "type": "string",
+                        "description": "SCHARGECODE VARCHAR(8)",
+                        "nullable": true
+                    },
+                    "readValue": {
+                        "type": "number",
+                        "description": "IMETERREADVALUE NUMERIC(18,2)",
+                        "format": "double"
+                    },
+                    "readChange": {
+                        "type": "number",
+                        "description": "IMETERREADDELTA NUMERIC(18,2) Nullable",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "problem": {
+                        "type": "string",
+                        "description": "SPROBLEM VARCHAR(32) Nullable",
+                        "nullable": true
+                    },
+                    "notes": {
+                        "type": "string",
+                        "description": "SNOTES VARCHAR(120) Nullable",
+                        "nullable": true
+                    },
+                    "estimated": {
+                        "type": "string",
+                        "description": "SESTIMATED VARCHAR(32) Nullable",
+                        "nullable": true
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/MeterReadStatus"
+                    },
+                    "isAdjustedForCapping": {
+                        "type": "boolean",
+                        "description": "IsAdjustedForCapping BIT"
+                    },
+                    "isTransponderFixed": {
+                        "type": "boolean",
+                        "description": "IsTransponderFixed BIT"
+                    },
+                    "threeMonthDailyAverage": {
+                        "type": "number",
+                        "description": "ThreeMonthDailyAverage DECIMAL(14,4)",
+                        "format": "double"
+                    },
+                    "isReadProratedToLongestSubCycle": {
+                        "type": "boolean",
+                        "description": "IsReadProratedToLongestSubCycle BIT"
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Billing.dbo.UNITBUT_METER_READ<br /><see href=\"http://datp-rpt01-slc/ReportServer_FIO/Pages/ReportViewer.aspx?/SSRS%20Conservice/IT/Dictionary+Files/Dictionary+-+Table+Detail&dbid=8&tableid=1984062154\">Data Dictionary</see>"
+            },
+            "EstimatedMeterRead": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "hmy INT",
+                        "format": "int32"
+                    },
+                    "readID": {
+                        "type": "integer",
+                        "description": "ReadHmy INT",
+                        "format": "int32"
+                    },
+                    "readValue": {
+                        "type": "number",
+                        "description": "ReadValue FLOAT",
+                        "format": "double"
+                    },
+                    "isReadProratedToLongestSubCycle": {
+                        "type": "boolean",
+                        "description": "IsReadProratedToLongestSubCycle BIT"
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Billing.dbo.cu_Estimated_Reads<br /><see href=\"http://datp-rpt01-slc/ReportServer_FIO/Pages/ReportViewer.aspx?/SSRS%20Conservice/IT/Dictionary+Files/Dictionary+-+Table+Detail&dbid=8&tableid=1207180292\">Data Dictionary</see>"
+            },
+            "ReadListReturn": {
+                "type": "object",
+                "properties": {
+                    "reads": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/MeterRead"
+                        },
+                        "nullable": true
+                    },
+                    "estimatedReads": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/EstimatedMeterRead"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "UnitCycleReadParam": {
+                "type": "object",
+                "properties": {
+                    "reads": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/MeterRead"
+                        },
+                        "nullable": true
+                    },
+                    "estimatedMeterReads": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/EstimatedMeterRead"
+                        },
+                        "nullable": true
+                    },
+                    "start": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "end": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CycleReads": {
+                "type": "object",
+                "properties": {
+                    "startRead": {
+                        "$ref": "#/components/schemas/MeterRead"
+                    },
+                    "startEst": {
+                        "$ref": "#/components/schemas/EstimatedMeterRead"
+                    },
+                    "endRead": {
+                        "$ref": "#/components/schemas/MeterRead"
+                    },
+                    "endEst": {
+                        "$ref": "#/components/schemas/EstimatedMeterRead"
+                    },
+                    "startReadValue": {
+                        "type": "number",
+                        "format": "double",
+                        "readOnly": true
+                    },
+                    "endReadValue": {
+                        "type": "number",
+                        "format": "double",
+                        "readOnly": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "EstimatedReadsToDelete": {
+                "type": "object",
+                "properties": {
+                    "readIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "nullable": true
+                    },
+                    "estimateIDs": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int32"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "UnitMeterReadsToDelete": {
+                "type": "object",
+                "properties": {
+                    "propertyId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "chargeCodes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "nullable": true
+                    },
+                    "keepWorksheetChargeCodes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "nullable": true
+                    },
+                    "allReads": {
+                        "type": "boolean"
+                    },
+                    "allUnits": {
+                        "type": "boolean"
+                    },
+                    "readDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "unitIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "SB7Setup": {
+                "type": "object",
+                "properties": {
+                    "propertyID": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "propertyCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "propertyName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "percentCharged": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "maxServiceFee": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "serviceChargeID": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "serviceChargeName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "utilityChargeID": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "utilityChargeCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "utilityChargeName": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CAUnitChildChargeEstimateSplitPercentage": {
+                "type": "object",
+                "properties": {
+                    "chargeCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "chargeID": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "chargeName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "unitID": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "propertyID": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "splitPercentage": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "tableID": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CAUnitParentChargeEstimateSplitPercentage": {
+                "type": "object",
+                "properties": {
+                    "chargeCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "chargeID": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "chargeName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "unitID": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "propertyID": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "splitPercentage": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "tableID": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "amount": {
+                        "maximum": 1,
+                        "minimum": 0,
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "currentOrdering": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "dbSavedOrdering": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CAUnitChargeEstimateSetup": {
+                "type": "object",
+                "properties": {
+                    "children": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CAUnitChildChargeEstimateSplitPercentage"
+                        },
+                        "nullable": true
+                    },
+                    "parent": {
+                        "$ref": "#/components/schemas/CAUnitParentChargeEstimateSplitPercentage"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "MeterSetup": {
+                "type": "object",
+                "properties": {
+                    "executionOrder": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "actionType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "mainChargeId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "mainChargeCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "childChargeId": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "childChargeCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "isDefaultAction": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "isEditableAction": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "isImportReadsAction": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "isSetupValid": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "chargeWillImport": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "isCalcBasedOnCombinedConsumption": {
+                        "type": "boolean",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "TimeOfUseSetup": {
+                "type": "object",
+                "properties": {
+                    "parentExpenseHmy": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "primaryChargeTypeId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "chargeTypeId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "timeOfUseMeterSetupId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "startAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "endAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "additionalProperties": false
+            }
+        },
+        "securitySchemes": {
+            "basic": {
+                "type": "http",
+                "description": "Basic Auth Header",
+                "scheme": "basic"
+            }
+        }
+    },
+    "security": [
+        {
+            "basic": []
+        }
+    ]
+}
