@@ -22,7 +22,7 @@ body {
 }
 
 .ImportBar * {
-    max-width: 42vw;
+    /* max-width: 42vw; */
     margin: 0px;
     box-sizing: border-box;
 }
