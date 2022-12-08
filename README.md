@@ -1,6 +1,9 @@
 # JSON Schema Generator
 
-A tool for helping extract JSON schemas from open API files.
+A tool for helping extract JSON schemas from open API files. To use enter the URL of the swagger.json file for the API and click *Import Swagger.json*. Alternatively you can copy and past the file contents directly.  
+![image](https://user-images.githubusercontent.com/50782218/206354951-ae3e0e97-f221-480f-bd88-f9c70437f2d7.png)
+
+Once swagger.json contents are entered the schema names will populate the drop down in the top right. Select the desired schema and click *Create Schema*.
 
 ## Available Scripts
 
