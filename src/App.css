@@ -1,5 +1,5 @@
 body {
-    background-color: gray;
+    background-color: #464646;
     height: 100vh;
 }
 
@@ -44,7 +44,7 @@ select {
 }
 
 .fa-github {
-    color: rgb(230, 230, 230);
-    font-size: xx-large;
-    margin: 3px;
+    color: white;
+    font-size: 28px;
+    margin-right: 6px;
 }
