@@ -40,23 +40,23 @@ function getDefinitions(
   definitionsAdded = null
 ) {
   if (definitionsAdded == null) definitionsAdded = [];
-  const componentRegex = '"#/components/schemas/([^"]*)"/g';
+  const componentRegex = /['"]#\/components\/schemas\/([^"]*)['"]/g;
   const classString = JSON.stringify(myClass);
   let matches = [...classString.matchAll(componentRegex)];
   if (matches == null || matches.length === 0) {
-    const definitionRegex = '"#/definitions/([^"]*)"/g';
+    const definitionRegex = /['"]#\/definitions\/([^"]*)['"]/g;
     matches = [...classString.matchAll(definitionRegex)];
   }
   let classesNeeded = matches.flatMap((m) => m.slice(1));
   classesNeeded.forEach((c) => {
     if (definitionsAdded.includes(c)) return;
-    schemas.forEach((s) => {
-      if (s?.Name === c) {
-        s.First.title = getTitle(c);
-        definitions = [...definitions, s];
-        getDefinitions(s, schemas, definitions, definitionsAdded);
+    for (const s in schemas) {
+      if (s === c) {
+        let def = Object.assign({ title: getTitle(c) }, schemas[s]);
+        definitions[c] = def;
+        getDefinitions(def, schemas, definitions, definitionsAdded);
       }
-    });
+    }
   });
 }
 

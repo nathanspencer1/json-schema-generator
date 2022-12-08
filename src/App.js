@@ -26,7 +26,7 @@ function App() {
     try {
       const data = JSON.parse(swaggerContent);
       const classes = data?.components?.schemas ?? data.definitions;
-      setClassNames(Object.keys(classes));
+      setClassNames(Object.getOwnPropertyNames(classes).sort());
     } catch (error) {}
   }, [swaggerContent]);
 
