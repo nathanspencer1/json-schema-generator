@@ -1,6 +1,7 @@
 import "./App.css";
 import schemaMethods from "./logic/JsonSchema";
 import { useEffect, useState } from "react";
+import "../src/css/button-green.css";
 
 function App() {
   const [swaggerJsonURL, setSwaggerJsonURL] = useState(
@@ -51,16 +52,26 @@ function App() {
   };
   return (
     <div className="App">
-      <div className="ImportBar">
-        {/* https://reactjs.org/docs/forms.html */}
-        <input
-          type={"text"}
-          value={swaggerJsonURL}
-          onChange={(event) => {
-            setSwaggerJsonURL(event.target.value);
-          }}
-        />
-        <button onClick={handleJsonImport}>Import Swagger.json</button>
+      <div className="TopLeft">
+        <a
+          href="https://github.com/nathanspencer1/json-schema-generator"
+          target={"blank"}
+        >
+          <i className="fa fa-github" />
+        </a>
+        <div className="ImportBar">
+          {/* https://reactjs.org/docs/forms.html */}
+          <input
+            type={"text"}
+            value={swaggerJsonURL}
+            onChange={(event) => {
+              setSwaggerJsonURL(event.target.value);
+            }}
+          />
+          <button className="button-green" onClick={handleJsonImport}>
+            Import Swagger.json
+          </button>
+        </div>
       </div>
       <div className="ImportBar">
         <select
@@ -76,7 +87,9 @@ function App() {
             </option>
           ))}
         </select>
-        <button onClick={handleClassSelect}>Create Schema</button>
+        <button className="button-green" onClick={handleClassSelect}>
+          Create Schema
+        </button>
       </div>
       <textarea
         value={swaggerContent}

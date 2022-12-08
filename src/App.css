@@ -16,6 +16,15 @@ body {
     box-sizing: border-box;
 }
 
+.TopLeft {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+.TopLeft * {
+    margin: 0px;
+}
+
 .ImportBar {
     display: grid;
     grid-template-columns: 1fr auto;
@@ -25,4 +34,17 @@ body {
     /* max-width: 42vw; */
     margin: 0px;
     box-sizing: border-box;
+}
+
+textarea,
+input,
+select {
+    background-color: #0E2039;
+    color: white;
+}
+
+.fa-github {
+    color: rgb(230, 230, 230);
+    font-size: xx-large;
+    margin: 3px;
 }
