@@ -15,6 +15,8 @@ function App() {
   const handleJsonImport = async () => {
     async function fetchData() {
       const response = await schemaMethods.httpGet(swaggerJsonURL);
+      if (response === '')
+        return;
       const data = JSON.parse(response);
       const displayText = JSON.stringify(data, null, 2);
       setSwaggerContent(displayText);
